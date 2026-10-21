@@ -1,0 +1,16 @@
+{
+  "name": "mini-marichka-bot",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Міні-Марічка: AI-помічниця в Telegram на Claude Code",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "grammy": "^1.31.0",
+    "@grammyjs/auto-retry": "^2.0.2",
+    "sql.js": "^1.10.0",
+    "dotenv": "^16.4.0"
+  }
+}

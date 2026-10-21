@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+<meta charset="UTF-8">
+<title>Каркас каруселі</title>
+<!-- Каркас для Марка. Кольори й шрифти міняються тільки в :root під брендбук власниці. -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;800;900&family=Playfair+Display:ital,wght@1,400;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #FFFFFF;          /* фон */
+    --bg-soft: #F2F2F2;     /* плашки */
+    --text: #141414;        /* основний текст */
+    --muted: #8A8A8A;       /* другорядний текст */
+    --accent: #E4572E;      /* один акцент: лінії, плашки, великі елементи */
+    --on-accent: #141414;   /* текст на акцентній плашці */
+    --font-head: 'Montserrat', sans-serif;
+    --font-voice: 'Playfair Display', serif;   /* другий голос, курсив */
+    --pad: 96px;
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { background: #DADADA; display: flex; flex-direction: column; align-items: center; gap: 48px; padding: 48px; font-family: var(--font-head); color: var(--text); }
+
+  .slide { width: 1080px; height: 1350px; background: var(--bg); position: relative; overflow: hidden;
+           display: flex; flex-direction: column; justify-content: center; padding: var(--pad); }
+  .num { position: absolute; top: 64px; left: var(--pad); font-weight: 800; font-size: 24px; letter-spacing: .12em; color: var(--muted); }
+  .handle { position: absolute; bottom: 56px; right: var(--pad); font-weight: 600; font-size: 24px; color: var(--muted); }
+  .line { width: 140px; height: 8px; background: var(--accent); margin: 48px 0; }
+
+  /* Обкладинка */
+  .cover .label { font-weight: 800; font-size: 24px; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 32px; }
+  .cover h1 { font-weight: 900; font-size: 104px; line-height: 1.02; text-transform: uppercase; }
+  .cover .sub { font-family: var(--font-voice); font-style: italic; font-size: 52px; line-height: 1.2; color: var(--muted); }
+  .cover.photo { justify-content: flex-end; padding: 0; }
+  .cover.photo img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+  .cover.photo .box { position: relative; background: var(--bg); margin: 0 64px 120px; padding: 56px; }
+
+  /* Текстовий слайд */
+  .text p { font-weight: 600; font-size: 60px; line-height: 1.25; margin-bottom: 40px; }
+  .text p.voice { font-family: var(--font-voice); font-style: italic; font-weight: 400; color: var(--muted); }
+  .mark { background: linear-gradient(transparent 62%, var(--accent) 62%, var(--accent) 92%, transparent 92%); }
+
+  /* Акцентний слайд: одна велика думка на плашці */
+  .accent .plate { background: var(--bg-soft); padding: 72px; }
+  .accent .big { font-weight: 900; font-size: 140px; line-height: 1; }
+  .accent .plate p { font-weight: 600; font-size: 52px; line-height: 1.25; margin-top: 32px; }
+
+  /* CTA */
+  .cta { align-items: center; text-align: center; }
+  .cta p { font-weight: 600; font-size: 56px; line-height: 1.25; }
+  .cta .word { display: inline-block; background: var(--accent); color: var(--on-accent); font-weight: 900; font-size: 120px;
+               letter-spacing: .04em; padding: 24px 56px; margin: 56px 0; text-transform: uppercase; }
+</style>
+</head>
+<body>
+
+<div class="slide cover">
+  <div class="label">рубрика одним словом</div>
+  <h1>Заголовок обкладинки до десяти слів</h1>
+  <div class="line"></div>
+  <div class="sub">коротка друга думка курсивом</div>
+  <div class="handle">@нікнейм</div>
+</div>
+
+<div class="slide text">
+  <div class="num">02</div>
+  <p>Одна думка на слайд. Короткі речення, великий кегль, багато повітря.</p>
+  <p>Ключове слово можна <span class="mark">виділити акцентом</span>.</p>
+  <p class="voice">Її жива фраза другим голосом.</p>
+  <div class="handle">@нікнейм</div>
+</div>
+
+<div class="slide accent">
+  <div class="num">03</div>
+  <div class="plate">
+    <div class="big">3 хв</div>
+    <p>Цифра чи коротка фраза з її тексту великим акцентом.</p>
+  </div>
+  <div class="handle">@нікнейм</div>
+</div>
+
+<div class="slide cta">
+  <div class="num">10</div>
+  <p>Напиши в коментарях</p>
+  <div class="word">слово</div>
+  <p>і я надішлю тобі …</p>
+  <div class="handle">@нікнейм</div>
+</div>
+
+</body>
+</html>

@@ -3,6 +3,9 @@
 # Її пам'ять (SOUL, MEMORY, GOALS, pravyla, memory/), «Контекст» і каруселі не чіпає.
 set -euo pipefail
 A=/home/agent; R=$A/repo
+if grep -q '"onovlennia"[[:space:]]*:[[:space:]]*false' $A/workspace/komanda.json 2>/dev/null; then
+  echo "Оновлення вимкнені власницею (komanda.json)."; exit 0
+fi
 cd $R
 OLD=$(git rev-parse HEAD)
 git fetch -q origin && git reset -q --hard origin/HEAD   # шаблон тільки читаємо, своїх змін тут немає
